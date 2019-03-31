@@ -5,7 +5,7 @@ module.exports.sort = function (array) {
 function quicksort(array, startPosition, endPosition) {
 
 	if(startPosition < endPosition) {
-		var partitionIndex = partition(array, startPosition, endPosition);
+		const partitionIndex = partition(array, startPosition, endPosition);
 
 	    quicksort(array, startPosition, partitionIndex -1)
 		quicksort(array, partitionIndex + 1, endPosition);
@@ -16,8 +16,8 @@ module.exports.partition = partition;
 
 function partition(array, startPosition, endPosition) {
 
-		let pivot = array[endPosition];
-		var pivotIndex = startPosition;
+		const pivot = array[endPosition];
+		let pivotIndex = startPosition;
 
 		for(var scanPosition = startPosition; scanPosition < endPosition; scanPosition++) {
 
@@ -34,7 +34,7 @@ function partition(array, startPosition, endPosition) {
 module.exports.swap = swap;
 
 function swap(array, firstPosition, secondPosition) {
-	var firstPositionValue = array[firstPosition];
+	let firstPositionValue = array[firstPosition];
 	array[firstPosition] = array[secondPosition];
 	array[secondPosition] = firstPositionValue;
 }
