@@ -7,8 +7,11 @@ function quicksort(array, startPosition, endPosition) {
 	if(startPosition < endPosition) {
 		const partitionIndex = partition(array, startPosition, endPosition);
 
-	    quicksort(array, startPosition, partitionIndex -1)
-		quicksort(array, partitionIndex + 1, endPosition);
+		const justBeforePartition = partitionIndex -1;
+		const justAfterPartition = partitionIndex + 1;
+
+	    quicksort(array, startPosition, justBeforePartition);
+		quicksort(array, justAfterPartition, endPosition);
 	}
 }
 
@@ -22,8 +25,8 @@ function partition(array, startPosition, endPosition) {
 		for(var scanPosition = startPosition; scanPosition < endPosition; scanPosition++) {
 
 			if(array[scanPosition] < pivot) {
-				swap(array, pivotIndex, scanPosition)
-				pivotIndex = pivotIndex + 1;
+				swap(array, pivotIndex, scanPosition);
+				pivotIndex++;
 			}
 		}
 
